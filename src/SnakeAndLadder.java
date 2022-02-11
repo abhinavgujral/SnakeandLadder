@@ -1,8 +1,9 @@
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class SnakeAndLadder {
-    Queue<player> players;
+    Queue<player> players= new LinkedList<>();
 
     public SnakeAndLadder(){
 
@@ -13,6 +14,10 @@ public class SnakeAndLadder {
     }
 
     public void setPlayers(List<player> players) {
+        for (player player : players) {
+            this.players.add(player);
+            Board.getPieces().put(player.getId(), 0); //Each player has a piece which is initially kept outside the board (i.e., at position 0).
+        }
         this.players = (Queue<player>) players;
     }
 
